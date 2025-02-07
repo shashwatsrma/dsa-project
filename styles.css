@@ -1,0 +1,106 @@
+body {
+    background-color: rgb(161, 181, 212);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+h1 {
+    width: 300px;
+    background-color: rgb(128, 82, 82);
+    margin-bottom: 20px;
+    font-style:normal;
+    text-align: center;
+    color: #ffffff;
+    border-radius:52px;
+
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-gap: 0; /* Ensure no gaps between cells for connected lines */
+    border: 5px solid #333; /* Outer border for the grid */
+    background-color: #fff; /* Clear white background for the grid */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for better visuals */
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-style: bold;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.cell.output {
+    font-weight: normal; /* Output numbers are normal */
+    color: #d31749; /* Slightly different color for output for better distinction */
+  }
+.cell.input
+{
+    font-weight: 600;
+    color: black;
+}
+.cell:focus {
+    border-color: #ff0000;
+    outline: none;
+    font-weight: 100;
+}
+.cell::-webkit-inner-spin-button,
+.cell::-webkit-outer-spin-button {
+  -webkit-appearance:none;
+  margin: 0;
+}
+
+/* Bold lines for 3x3 sub-grids (to create the visual effect of connection) */
+.cell:nth-child(3n) {
+    border-right: 3px solid black;
+}
+
+.cell:nth-child(9n + 1) {
+    border-left: 3px solid black;
+}
+
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+    border-bottom: 3px solid black;
+}
+
+.cell:nth-child(-n + 9) {
+    border-top: 3px solid rgb(0, 0, 0);
+}
+
+.buttons {
+    margin-top: 20px;
+    align-items: center;
+    
+}
+
+button {
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px 10px;
+    border: 2px solid #673ab7; /* Slightly darker border for better visibility */
+    cursor: pointer;
+    background-color: rgb(89, 41, 192); /* Initial background color */
+    color: rgb(255, 255, 255); /* Text color */
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.5s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: rgb(75, 35, 162); /* Darker background on hover */
+    box-shadow: 0 4px 10px rgba(89, 41, 192, 0.4); /* Subtle shadow effect */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+button:active {
+    transform: translateY(1px); /* Button "press" effect */
+    box-shadow: 0 2px 5px rgba(89, 41, 192, 0.2); /* Reduced shadow on active */
+}
+

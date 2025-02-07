@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(161, 181, 212);
+    background: linear-gradient(to right, #a8c0ff, #3f2b96); /* Soft blue-purple gradient */
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -8,23 +8,24 @@ body {
 }
 
 h1 {
-    width: 300px;
-    background-color: rgb(128, 82, 82);
+    width: 320px;
+    background-color: #4a148c; /* Deep purple */
     margin-bottom: 20px;
-    font-style:normal;
+    font-style: normal;
     text-align: center;
     color: #ffffff;
-    border-radius:52px;
-
+    border-radius: 52px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(9, 40px);
-    grid-gap: 0; /* Ensure no gaps between cells for connected lines */
-    border: 5px solid #333; /* Outer border for the grid */
-    background-color: #fff; /* Clear white background for the grid */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for better visuals */
+    grid-gap: 0;
+    border: 6px solid #000; /* Stronger contrast */
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .cell {
@@ -32,31 +33,29 @@ h1 {
     height: 40px;
     text-align: center;
     font-size: 18px;
-    font-style: bold;
-    border: 1px solid #ccc;
+    font-weight: bold;
+    border: 1px solid #888; /* Slightly darker border */
     box-sizing: border-box;
-}
-.cell.output {
-    font-weight: normal; /* Output numbers are normal */
-    color: #d31749; /* Slightly different color for output for better distinction */
-  }
-.cell.input
-{
-    font-weight: 600;
-    color: black;
-}
-.cell:focus {
-    border-color: #ff0000;
-    outline: none;
-    font-weight: 100;
-}
-.cell::-webkit-inner-spin-button,
-.cell::-webkit-outer-spin-button {
-  -webkit-appearance:none;
-  margin: 0;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Bold lines for 3x3 sub-grids (to create the visual effect of connection) */
+.cell.output {
+    font-weight: normal;
+    color: #d32f2f; /* More distinct red */
+}
+
+.cell.input {
+    font-weight: 700;
+    color: black;
+}
+
+.cell:focus {
+    border-color: #ff5722; /* Bright orange for focus */
+    outline: none;
+    background-color: rgba(255, 87, 34, 0.1);
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
 .cell:nth-child(3n) {
     border-right: 3px solid black;
 }
@@ -71,36 +70,34 @@ h1 {
 }
 
 .cell:nth-child(-n + 9) {
-    border-top: 3px solid rgb(0, 0, 0);
+    border-top: 3px solid black;
 }
 
 .buttons {
     margin-top: 20px;
-    align-items: center;
-    
+    display: flex;
+    gap: 10px;
 }
 
 button {
-    text-align: center;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 18px;
-    margin: 10px 10px;
-    border: 2px solid #673ab7; /* Slightly darker border for better visibility */
+    border: none;
     cursor: pointer;
-    background-color: rgb(89, 41, 192); /* Initial background color */
-    color: rgb(255, 255, 255); /* Text color */
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.5s, box-shadow 0.3s; /* Smooth transitions */
+    background-color: #673ab7; /* Vibrant purple */
+    color: white;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: rgb(75, 35, 162); /* Darker background on hover */
-    box-shadow: 0 4px 10px rgba(89, 41, 192, 0.4); /* Subtle shadow effect */
-    transform: translateY(-2px); /* Slight upward movement */
+    background-color: #512da8; /* Darker purple */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
-    transform: translateY(1px); /* Button "press" effect */
-    box-shadow: 0 2px 5px rgba(89, 41, 192, 0.2); /* Reduced shadow on active */
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-

@@ -93,7 +93,7 @@ button {
 
 button:hover {
     background-color: #512da8; /* Darker purple */
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
